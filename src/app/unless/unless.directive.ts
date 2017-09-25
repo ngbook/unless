@@ -1,18 +1,17 @@
 import {
-    Directive, TemplateRef, ElementRef,
+    Directive, TemplateRef, ElementRef, OnInit,
     ViewContainerRef, Input, ViewChild
 } from '@angular/core';
 
 @Directive({
     selector: '[unless]'
 })
-export class UnlessDirective {
+export class UnlessDirective implements OnInit {
 
     private hasView: boolean;
 
     constructor(private templateRef: TemplateRef<any>,
-        private viewContainer: ViewContainerRef,
-        private elRef: ElementRef) {}
+        private viewContainer: ViewContainerRef) {}
 
     @Input()
     set unless(condition: boolean) {
